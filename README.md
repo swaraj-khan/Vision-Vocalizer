@@ -7,7 +7,12 @@
 Developing an inclusive mobile app for the visually impaired, utilizing OpenCV for real-time object recognition through the device camera, empowering users with auditory feedback for enhanced navigation and object identification.
 
 ## Background Study: 
+- *Seeing AI by Microsoft:* Provides audio descriptions of the surroundings, reads handwritten notes, and identifies products through barcode scanning. Limited to smartphone or tablet use and specific tasks like object recognition and text reading.
+- *Microsoft Soundscape:* Creates audio maps of the environment for outdoor navigation, primarily relying on smartphone GPS capabilities.
+- *Braille Displays and Keyboards:* Enable tactile reading of digital content but are limited by availability, affordability, and hardware requirements.
+- *Bluetooth Beacons:* Offer precise indoor navigation in specific locations but require infrastructure deployment and are limited to certain venues.
 
+Challenges and trends in the field include the increasing prevalence of visual impairment due to aging populations, the affordability and accessibility of smartphone-based solutions, and the need for further research to improve the quality of life for visually impaired individuals.
 
 [Paper 1](https://arxiv.org/pdf/2212.04745v2.pdf)
 [Paper 2](https://www.researchgate.net/publication/355102026_Computer_Vision_for_Supporting_Visually_Impaired_People_A_Systematic_Review)
