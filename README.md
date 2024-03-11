@@ -28,8 +28,8 @@ A real-time object detection system with distance calculation and voice alerts. 
 ---
 
 ## Team Members and roles:
-Product Owner - Swaraj
-Scrum Master - Sambram
-Developer Sourabh, Ananya and Shreepaada
-Quality and compliance - Soumyo 
-Operations - Roshan
+- **Product Owner** - Swaraj
+- **Scrum Master** - Sambram
+- **Developer** - Sourabh, Ananya and Shreepaada
+- **Quality and compliance** - Soumyo 
+- **Operations** - Roshan
