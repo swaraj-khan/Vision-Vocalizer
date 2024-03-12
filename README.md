@@ -24,7 +24,7 @@ Challenges and trends in the field include the increasing prevalence of visual i
 - The app will leverage built-in Android accessibility features, like TalkBack and Screen Reader compatibility, to ensure a smooth and informative experience for users with visual impairments.
 
 
-![Diagram 1](https://github.com/swaraj-khan/Vision-Vocalizer/assets/94361805/9b7a46be-a751-4e53-9a43-3c3030f7ded6)
+![Diagram 1](https://github.com/swaraj-khan/Vision-Vocal-9a43-3c3030f7ded6)
 
 
 ![Diagram 2](https://github.com/swaraj-khan/Vision-Vocalizer/assets/94361805/f0e2deeb-035d-49b2-922f-86955014281b)
