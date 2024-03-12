@@ -35,7 +35,7 @@ detection model to classify objects in the images and TensorFlow APIs to impleme
 
 A real-time object detection system with distance calculation and voice alerts. Key components and technologies include:
 - Image/Video Capture: likely through a camera integrated with a mobile device.
-- Object Detection Model:  A machine learning model (potentially SSD MobileNet or similar) for real-time identification.
+- Object Detection Model:  A machine learning model for real-time identification.
 - Distance Calculation:  Algorithmic estimation of the distance between the user and detected objects.
 - Voice Output:  Text-to-speech system to provide auditory alerts about object type and proximity.
 
