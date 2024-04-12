@@ -1,0 +1,27 @@
+name: Python CI - Pull Requests
+
+on:
+  pull_request:
+    branches: ["main"] 
+
+jobs:
+  python-code-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python environment 
+        uses: actions/setup-python@v4 
+        with:
+          python-version: '3.11.0' # Replace with your desired version
+      - name: Install dependencies (backend)
+        if: ${{ startsWith(github.ref, 'refs/heads/backend/') }} # Check for backend changes
+        run: cd backend && pip install -r requirements.txt
+      - name: Install dependencies (frontend)
+        if: ${{ startsWith(github.ref, 'refs/heads/frontend/') }} # Check for frontend changes
+        run: cd frontend && npm install 
+      - name: Run Python tests and linters (backend)
+        if: ${{ startsWith(github.ref, 'refs/heads/backend/') }}
+        run: python app.py 
+      - name: Run frontend tests and linters (frontend)
+        if: ${{ startsWith(github.ref, 'refs/heads/frontend/') }}
+        run: cd frontend && npm start  
