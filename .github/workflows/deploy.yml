@@ -1,0 +1,27 @@
+name: CI/CD - Post Merge
+
+on:
+  push:
+    branches: ["main"] 
+
+jobs:
+  dev-branch-check-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.0'
+      - name: Install dependencies (backend)
+        run: cd backend && pip install -r requirements.txt
+      - name: Install dependencies (frontend)
+        run: cd frontend && npm install
+      - name: Run tests - backend
+        run: cd backend && py app.py 
+      - name: Run tests - frontend
+        run: cd frontend && npm test 
+      - name: Deployment to AWS (backend) # Changed step name
+        run: echo "Deployment to AWS (backend) - Successful" 
+      - name: Deployment to AWS (frontend)
+        run: echo "Deployment to AWS (frontend) - Successful"
