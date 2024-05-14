@@ -1,0 +1,8 @@
+opencv-python
+numpy
+pandas
+torch_nightly
+matplotlib
+Pillow
+torch
+imutils
