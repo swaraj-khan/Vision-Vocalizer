@@ -1,27 +1,50 @@
-name: Python CI - Pull Requests
+name: CI/CD - Post Merge
 
 on:
-  pull_request:
+  push:
     branches: ["main"] 
 
 jobs:
-  python-code-check:
+  dev-branch-check-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python environment 
-        uses: actions/setup-python@v4 
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11.0' # Replace with your desired version
+          python-version: '3.11.0'
       - name: Install dependencies (backend)
-        if: ${{ startsWith(github.ref, 'refs/heads/backend/') }} # Check for backend changes
         run: cd backend && pip install -r requirements.txt
       - name: Install dependencies (frontend)
-        if: ${{ startsWith(github.ref, 'refs/heads/frontend/') }} # Check for frontend changes
-        run: cd frontend && npm install 
-      - name: Run Python tests and linters (backend)
-        if: ${{ startsWith(github.ref, 'refs/heads/backend/') }}
-        run: python app.py 
-      - name: Run frontend tests and linters (frontend)
-        if: ${{ startsWith(github.ref, 'refs/heads/frontend/') }}
-        run: cd frontend && npm start  
+        run: cd frontend && npm install
+      - name: Run tests - backend
+        run: cd backend && py app.py 
+      - name: Run tests - frontend
+        run: cd frontend && npm test 
+      # - name: Install AWS CLI
+      #   run: |
+      #     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      #     unzip awscliv2.zip
+      #     sudo ./aws/install
+      # - name: Configure AWS credentials
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      #   run: |
+      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      #     aws configure set default.region $AWS_DEFAULT_REGION
+      # - name: Deployment to AWS (backend)
+      #   run: |
+      #     echo "Deployment to AWS (backend) - Successful"
+      #     cd backend
+      #     aws s3 sync . s3://your-backend-bucket-name
+      #     # Add other AWS deployment commands for backend as needed
+      # - name: Deployment to AWS (frontend)
+      #   run: |
+      #     echo "Deployment to AWS (frontend) - Successful"
+      #     cd frontend
+      #     aws s3 sync . s3://your-frontend-bucket-name
+      #     # Add other AWS deployment commands for frontend as needed
+ 
